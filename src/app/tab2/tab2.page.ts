@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Inject} from '@angular/core';
+import {PhotoService} from "src/app/services/photo.service";
 
 @Component({
   selector: 'app-tab2',
@@ -8,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  public photoService: PhotoService = Inject(PhotoService);
+
+  constructor() {
+  }
+
+  addPhotoToGallery() {
+    this.photoService.addNewToGallery();
+  }
 
 }
